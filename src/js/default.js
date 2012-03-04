@@ -1,1 +1,0 @@
-forge.logging.info("Start your app here!");

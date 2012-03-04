@@ -1,1 +1,0 @@
-forge.logging.info("This is executed once per extension/browser launch");
