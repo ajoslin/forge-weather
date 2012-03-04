@@ -1,0 +1,27 @@
+{
+	"uuid": "DEMO",
+	"platform_version": "v1.2",
+	"name": "weather",
+	"author": "andytjoslin@gmail.com",
+	"version": "0.1",
+	"description": "My Extension Description",
+	"permissions": ["tabs", "http://www.google.com/*"],
+	"background_files": ["js/background.js"],
+	"browser_action": {
+		"default_title": "An example browser toolbar icon",
+		"default_popup": "index.html",
+		"default_icon": "img/logo-forge.png"
+	},
+	"activations": [
+		{
+			"patterns": ["http://*/*", "https://*/*"],
+			"styles": [],
+			"scripts": ["js/every-page.js"],
+			"run_at": "start",
+			"all_frames": false
+		}
+	],
+	"logging": {
+			"level": "INFO"
+	}
+}
