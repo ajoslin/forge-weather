@@ -78,7 +78,9 @@ $(function() {
 				self.add(forecast);
 				forecast.readFromXML(element);
 			});
-			self.trigger('fetch') //so there won't be a re-render each time any of the children are changed, we do custom fetch event
+			//so there won't be a re-render each time any of the children are changed, 
+			//we do custom fetch event
+			self.trigger('fetch');
 		}
 	});
 
@@ -128,6 +130,11 @@ $(function() {
 		"</td>",
 
 		initialize: function() {
+			//we have a custom event called 'fetch',
+			//which is custom triggered when fetching
+			//the weather data and changing day-list
+			//we use this instead of change,
+			//because change is called each time any child changes
 			this.model.bind('fetch', this.render, this);
 		},
 
@@ -190,28 +197,3 @@ $(function() {
 	(new views.AppMain).render();
 
 });
-
-/*
-var forecast = {
-	city: "Mountain View, CA",
-	forecast_date: "2011-08-09"
-};
-
-var currentConditions = {
-	condition: "Clear",
-	temp_f: "73",
-	humidity: "Humidity: 57%",
-	icon: "resources/sunny.gif",
-	wind_condition: "Wind: N at 9 mph"
-};
-
-var tuesdayConditions = forecastConditionMaker("Tue", "58","72", "resources/mostly_sunny.gif","Clear");
-var wednesdayConditions = forecastConditionMaker("Wed", "58", "72", "resources/sunny.gif", "Clear");
-var thursdayConditions = forecastConditionMaker("Thu", "56", "72", "resources/chance_of_rain.gif", "Chance of Rain");
-var fridayConditions = forecastConditionMaker("Fri", "58", "74", "resources/sunny.gif", "Clear");
-
-var mountainViewForecast = {
-	forecast: forecast,
-	currentConditions: currentConditions,
-	forecastConditions: [tuesdayConditions, wednesdayConditions, thursdayConditions, fridayConditions]
-};*/
